@@ -12,7 +12,8 @@ public class Timer :MonoBehaviour
     }
 
     public void StartTime()=>_currentTime = _startTime;
-    public bool IsFinished()=> _currentTime <= 0;
+
+    public bool IsFinished()=> _currentTime <=  0;
     
     public void Tick()
     {
