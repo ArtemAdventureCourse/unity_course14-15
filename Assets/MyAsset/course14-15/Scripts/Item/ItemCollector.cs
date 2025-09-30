@@ -48,7 +48,7 @@ public class ItemCollector : MonoBehaviour
         if (_timer.IsFinished())
         {
             _effect.SetPosition(_item);
-            _item.Delete(_item);
+            _item.Delete();
             _effect.Play(_item);
         }
     }
@@ -56,7 +56,7 @@ public class ItemCollector : MonoBehaviour
     private void ChooseItem()
     {
         if (_item.CompareTag(_throwTag))        
-            _item.Throw(_item);     
+            _item.Throw();     
         else if (_item.CompareTag(_speedTag))        
             UseConsumableItem();        
         else if (_item.CompareTag(_healthTag))       
@@ -98,11 +98,11 @@ public class ItemCollector : MonoBehaviour
             Debug.LogWarning(_itemFullWarning);
     }
 
-    public void ThrowItemWithForce(Item item)
+    public void ThrowItemWithForce()
     {
-        Rigidbody rb = item.GetComponent<Rigidbody>();
+        Rigidbody rb = _item.GetComponent<Rigidbody>();
         if (rb == null)
-            rb = item.gameObject.AddComponent<Rigidbody>();
+            rb = _item.gameObject.AddComponent<Rigidbody>();
 
         SetForceAndDirection(rb);
     }

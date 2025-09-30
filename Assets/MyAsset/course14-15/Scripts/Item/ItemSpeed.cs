@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ItemSpeed : Item
 {
+    private float _increaseSpeed = 0.2f;
     protected override void DoEffect(Player player)
     {
         player._rigidBody.mass -= _increaseSpeed;

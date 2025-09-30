@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ItemHealth : Item
 {
+    private int _increaseHealth = 2;
     protected override void DoEffect(Player player)
     {
         player.CurrentHealth += _increaseHealth;

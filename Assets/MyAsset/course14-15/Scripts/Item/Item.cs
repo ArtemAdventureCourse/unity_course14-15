@@ -4,20 +4,21 @@ public class Item : MonoBehaviour
 {
     [SerializeField] protected ItemCollector _itemCollector;
     [SerializeField] protected Timer _timer;
-    protected float _increaseSpeed = 0.2f;
-    protected int _increaseHealth = 2;
+
+    public bool IsReadyItemClear=false;
+    
 
     protected virtual void DoEffect(Player player) { }
 
     public void Use(Player player) => DoEffect(player);
 
-    protected virtual void ThrowItem(Item item) { }
+    protected virtual void ThrowItem() { }
 
-    public void Throw(Item item) => ThrowItem(item);
+    public void Throw() => ThrowItem();
 
-    public void Delete(Item item) => ItemDelete(item);
+    public void Delete() => ItemDelete();
 
-    protected virtual void ItemDelete(Item item) { }
+    protected virtual void ItemDelete() { }
 
     protected virtual void ItemDestroy() { }
 
